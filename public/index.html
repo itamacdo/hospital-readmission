@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAnalytics Pro | Sistema de Gestão</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-hospital-alt"></i>
+            <span>MedAnalytics</span>
+        </div>
+        <nav>
+            <button class="nav-btn active" onclick="showTab('tab-dashboard')">
+                <i class="fas fa-chart-line"></i> Visão Geral
+            </button>
+            <button class="nav-btn" onclick="showTab('tab-leitos')">
+                <i class="fas fa-bed"></i> Gestão de Leitos
+            </button>
+            <button class="nav-btn" onclick="showTab('tab-predicao')">
+                <i class="fas fa-robot"></i> Predição de Risco
+            </button>
+            <button class="nav-btn" onclick="showTab('tab-financeiro')">
+                <i class="fas fa-wallet"></i> Financeiro
+            </button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        
+        <section id="tab-dashboard" class="tab-content active">
+            <header class="page-header">
+                <h1>Visão Geral Executiva</h1>
+                <p>Status operacional das últimas 24 horas</p>
+            </header>
+            <div class="kpi-container">
+                <div class="kpi-card"><span>Ocupação</span><strong>84%</strong></div>
+                <div class="kpi-card"><span>Espera Média</span><strong>18min</strong></div>
+                <div class="kpi-card"><span>Altas Hoje</span><strong>32</strong></div>
+            </div>
+            <div class="charts-row">
+                <div class="chart-card"><h4>Volume de Atendimento</h4><canvas id="chartGeral1"></canvas></div>
+                <div class="chart-card"><h4>Pacientes por Convênio</h4><canvas id="chartGeral2"></canvas></div>
+            </div>
+        </section>
+
+        <section id="tab-leitos" class="tab-content">
+            <header class="page-header">
+                <h1>Gestão de Capacidade</h1>
+                <p>Eficiência e Giro de Leitos por Unidade</p>
+            </header>
+            <div class="kpi-container">
+                <div class="kpi-card"><span>Giro de Leito</span><strong>3.8</strong></div>
+                <div class="kpi-card"><span>Média Permanência</span><strong>4.5d</strong></div>
+                <div class="kpi-card"><span>Vagas Livres</span><strong>18</strong></div>
+            </div>
+            <div class="charts-row">
+                <div class="chart-card"><h4>Ocupação por Setor</h4><canvas id="chartLeitos1"></canvas></div>
+                <div class="chart-card"><h4>Permanência por Especialidade</h4><canvas id="chartLeitos2"></canvas></div>
+            </div>
+        </section>
+
+        <section id="tab-predicao" class="tab-content">
+            <header class="page-header">
+                <h1>IA Preditiva de Readmissão</h1>
+                <p>Análise probabilística baseada em histórico clínico</p>
+            </header>
+            <div class="prediction-wrapper">
+                <div class="calculator-card">
+                    <h3>Simulador Individual</h3>
+                    <div class="field">
+                        <label>Idade</label>
+                        <input type="number" id="idade" value="65">
+                    </div>
+                    <div class="field">
+                        <label>Internações Prévias</label>
+                        <input type="number" id="consultas" value="2">
+                    </div>
+                    <div class="field">
+                        <label>Comorbidade Crônica?</label>
+                        <select id="doenca">
+                            <option value="0">Não</option>
+                            <option value="1">Sim</option>
+                        </select>
+                    </div>
+                    <button class="btn-calc" onclick="executarIA()">Calcular Risco</button>
+                    <div class="prediction-result">
+                        <span id="risk-value">0%</span>
+                        <div class="risk-bar-bg"><div id="risk-bar-fill"></div></div>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h4>Distribuição de Variáveis de Risco</h4>
+                    <canvas id="chartIA"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-financeiro" class="tab-content">
+            <header class="page-header">
+                <h1>Ciclo Financeiro</h1>
+                <p>Monitoramento de Glosas e Receita Mensal</p>
+            </header>
+            <div class="kpi-container">
+                <div class="kpi-card"><span>Faturamento</span><strong>R$ 2.1M</strong></div>
+                <div class="kpi-card danger"><span>Glosas Ativas</span><strong>R$ 142k</strong></div>
+            </div>
+            <div class="charts-row">
+                <div class="chart-card"><h4>Evolução Glosa vs Receita</h4><canvas id="chartFin1"></canvas></div>
+                <div class="chart-card"><h4>Motivos de Recusa</h4><canvas id="chartFin2"></canvas></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
