@@ -1,10 +1,10 @@
-# 🏥 MedAnalytics Pro - Inteligência Hospitalar 
+# MedAnalytics Pro - Inteligência Hospitalar 
 
 Este projeto é uma plataforma de **Business Intelligence (BI)** e **Análise Preditiva** voltada para a gestão hospitalar de alta performance. O sistema consolida indicadores críticos em dashboards interativos para suporte à decisão clínica e administrativa.
 
 ---
 
-## 📸 Demonstração do Sistema
+## Demonstração do Sistema
 
 ### 1. Visão Geral Executiva
 Monitoramento em tempo real de ocupação, tempo de espera e fluxo de pacientes.
@@ -24,7 +24,7 @@ Controle de faturamento e análise detalhada de taxas de glosas por convênio.
 
 ---
 
-## 🛠️ Tecnologias e Arquitetura
+## Tecnologias e Arquitetura
 
 O projeto foi estruturado para simular um ambiente real de Ciência de Dados:
 
@@ -39,6 +39,3 @@ O projeto foi estruturado para simular um ambiente real de Ciência de Dados:
 * `notebooks/`: Documentação da lógica matemática e treinamento do modelo.
 * `public/`: Código fonte da aplicação web (HTML, CSS, JS).
 * `screenshots/`: Registro visual das funcionalidades do sistema.
-
----
-**Desenvolvido como projeto de portfólio para Análise de Dados e Inteligência de Negócios.**
